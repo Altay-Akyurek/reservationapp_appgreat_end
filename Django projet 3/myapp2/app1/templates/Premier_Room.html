@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Magestic Hotel</title>
+    {% load static %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'dist/slick.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dist/jquery.scrollUp.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style4.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/style1.js' %}">
+    <script type="text/javascript" src="{% static 'dist/demo.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+        .tm-roomsection {
+            display: flex;
+            justify-content: center; /* Yatay ortalama */
+            align-items: center; /* Dikey ortalama */
+            flex-direction: column; /* Dikey hizalama için sütun düzeni */
+            height: 100vh; /* Tüm ekran yüksekliği */
+        }
+        .tm-roomimage {
+            margin: 20px 0; /* Resim etrafında boşluk */
+        }
+        .tm-resbutton {
+            margin-top: 20px; /* Rezervasyon butonu için boşluk */
+        }
+    </style>
+</head>
+
+<body  background="{% static 'img/gold_hotel2.jpeg' %}" style="background-size: 100%; cover; background-repeat: no-repeat; background-position: center;">
+    <header class="tm-header">
+        <header class="tm-header">
+            <img class="tm-logo" src="{% static 'img/hotel.png' %}" style="width: 50px; height: 50px; position: absolute; left: 5;">
+                </header>
+        <nav class="tm-nav">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <ul>
+                    <ul class="menu">
+                        <li class="tm-list"><a href="login.html">Anasayfa</a></li>
+                        <li class="tm-list"><a href="explore.html">Keşfetmek</a></li>
+                        <li class="tm-list"><a href="rooms.html">Odalarımız</a></li>
+                        <li class="tm-list"><a href="rezervasyon_oluştur">Rezervasyon</a></li>
+                        <li class="tm-list"><a href="contact.html">İletişim</a></li>
+                        <li class="tm-list dropdown">
+                            <a href="/">Çıkış Yap</a>
+                            <ul class="dropdown-content">
+                                <a href="profile.html">Profil</a>
+                                <a href="settings.html">Ayarlar</a>
+                                <a href="/">Çıkış</a>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+        </nav>
+    </header>
+    </header>
+
+    <section class="tm-main" style="padding: 1px; margin: 0px; background-color: rgb(34, 47, 110);">
+        <p style="font-size: 30px;">Premier Room</p>
+    </section>
+
+    <section class="tm-roomsection">
+        <div class="tm-room1">
+           
+
+           
+                <img class="tm-roomimage" src="{% static 'img/Ekran görüntüsü 2024-10-18 001617.jpg' %}" style="width: 580px; height: 400px;">
+            
+
+            
+                <div class="create" style="display: flex; flex-direction: column; align-items: center;">
+                    <form method="POST" action="{% url 'create_reservation' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_check_in" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Giriş Tarihi:</label>
+                            <input type="date" id="id_check_in" name="check_in" required style="width: 250px; height: 40px; padding-left: 10px; text-align: center; font-size: 25px;">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="id_check_out" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Çıkış Tarihi:</label>
+                            <input type="date" id="id_check_out" name="check_out" required style="width: 250px; height: 40px; padding-left: 10px; text-align: center; font-size: 25px;">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="id_room_number" style="font-size: 18px; font-weight: bold; margin-left: -20px;">Oda Numarası:</label>
+                            <input type="number" id="id_room_number" name="room_number" min="1" required style="width: 250px; height: 40px; padding-left: 10px; text-align: center; font-size: 25px;">
+                        </div>
+                        <br>    
+                        <div class="tm-resbutton" style="text-align: center;">
+                            <button type="submit" class="reservation-btn">
+                                <p href="sell" style="font-size: 18px;">Rezervasyon Yap</p>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+
+            
+            
+        </div>
+    </section>
+</body>
+</html>

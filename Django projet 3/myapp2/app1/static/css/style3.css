@@ -1,0 +1,105 @@
+.tm-resbutton button {
+    background-color: #181826; /* Arka plan rengi sayfa ile aynı */
+    border: none;
+    padding: 15px 30px;
+    color: #00ff00; /* Yeşil yazı rengi */
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.tm-resbutton button:hover {
+    background-color: #00ff00; /* Hover sırasında yeşil arka plan */
+    color: #050801; /* Hover sırasında yazı rengi */
+    box-shadow: 0 0 5px #00ff00,
+                0 0 25px #00ff00,
+                0 0 50px #00ff00,
+                0 0 200px #00ff00;
+}
+
+.tm-resbutton button span {
+    position: absolute;
+    display: block;
+}
+
+.tm-resbutton button span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff00); /* Yeşil çizgi */
+    animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+.tm-resbutton button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00ff00); /* Yeşil çizgi */
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+.tm-resbutton button span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00ff00); /* Yeşil çizgi */
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    }
+
+    50%, 100% {
+        right: 100%;
+    }
+}
+
+.tm-resbutton button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00ff00); /* Yeşil çizgi */
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%, 100% {
+        bottom: 100%;
+    }
+}

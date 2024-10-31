@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+	{% load static %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="static/css/style.css"> <!-- Düzeltme burada -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'> 
+	<link rel="stylesheet" href="{% static 'css/daktilo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/loading.css' %}">
+
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+	
+</head>
+<body>
+	<div class="top-section" style="width: 95px; height: 700px; position: absolute; left: 50;" >
+		<div class="spinner">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		  </div>
+	</div>
+	
+	
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+		
+			<div class="signup">
+				<form method="post" action="{% url 'user_register' %}">
+
+					{% csrf_token %}
+					{% if error %}
+						<div class="alert alert-danger">
+						{{error}}
+						</div>
+					{% endif %}
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" name="username" id="username" placeholder="Username" required>
+					<input type="email" name="email" id="email" placeholder="Email" required>
+					<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+					<input type="password" name="repassword" id="repassword" class="form-control" placeholder="Repassword">
+					<button type="submit">Register</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form method="post" action="{% url 'user_login' %}"><!--dor yapısını unutma-->
+					{% csrf_token %}
+					{% if error %}
+						<div class="alert alert-danger">
+						{{error}}
+						</div>
+					{% endif %}
+					<label for="chk" aria-hidden="true">Login</label>
+					<div class="typewriter" style="position: relative; left: 110px;">
+						<div class="slide"><i></i></div>
+						<div class="paper"></div>
+						<div class="keyboard"></div>
+					</div>
+					<br>
+					<input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+					<input type="password" name="password" id="password" class="form-control" placeholder="password" required/>
+					<button type="submit" onclick="window.location.href='{% url 'loading' %}'">LOGIN</button>
+				</form>
+				
+			</div>
+			
+			
+			
+	</div>
+	
+	
+	
+</body>
+</html>

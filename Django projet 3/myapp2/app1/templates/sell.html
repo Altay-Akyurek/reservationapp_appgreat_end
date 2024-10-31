@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kredi Kartı Bilgileri</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/sell.css' %}">
+    <script type="text/javascript" src="{% static 'dist/sell.js' %}"></script><!---sell.js dosyasını tekrar oluşturduk sonra kodu -->
+</head>
+<body background="{% static 'img/gold_hotel2.jpeg' %}" style="background-size: 100%; cover; background-repeat: no-repeat; background-position: center;">
+
+    <div class="card-container">
+        <!-- Kredi Kartı Görüntüsü -->
+        <div class="credit-card">
+            <div class="card-front">
+                <div class="card-chip"></div>
+                <div class="card-logo">BANKA KARTI</div>
+                <div class="card-number" id="display-card-number">XXXX XXXX XXXX XXXX</div>
+                <div class="card-details">
+                    <div class="card-holder">
+                        <label>Kart Sahibi</label>
+                        <div class="card-name" id="display-card-name">AD SOYAD</div>
+                        <div class="card-cvv">
+                            <label>CVV</label>
+                            <div id="display-cvv">XXX</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-expiry">
+                        <label>Son Kullanma Tarihi</label>
+                        <div class="expiry-date" id="display-expiry">MM/YY</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Ödeme Formu -->
+        <div class="card-form">
+            
+            <h2>Kredi Kartı Bilgileri</h2>
+            <form id="credit-card-form" method="POST" action="{% url 'sell' %}">
+                {% csrf_token %}
+                <label for="cardNumber">Kart Numarası</label>
+                <input type="text" id="cardNumber" name="card_number" maxlength="16" placeholder="XXXX XXXX XXXX XXXX" required>
+
+                <label for="cardName">Kart Sahibi Adı</label>
+                <input type="text" id="cardName" name="card_name" placeholder="AD SOYAD" required>
+
+                <label for="expiry">Son Kullanma Tarihi</label>
+                <input type="text" id="expiry" name="expiry_date" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" maxlength="3" placeholder="XXX" required>
+
+                <button type="submit" >
+                    <p href="yes">Ödemeyi Tamamla</p>  <!--buradan devam-->
+                </button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
